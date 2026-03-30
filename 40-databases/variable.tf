@@ -5,3 +5,11 @@ variable "project" {
 variable "environment" {
     default = "dev"
 }
+
+variable "zone_id" {
+    default = "Z08523472OYX94THFQBDL"
+}
+
+variable "domain_id" {
+    default = "pinjari99.online"
+}
