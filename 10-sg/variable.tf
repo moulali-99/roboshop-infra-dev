@@ -7,27 +7,21 @@ variable "environment" {
 }
 
 variable "sg_names" {
-
-    type=list
+    type = list
     default = [
-
-        # Database
+        # Databases
         "mongodb", "redis", "mysql", "rabbitmq",
-
-        #Backend
-        "catalouge", "user", "cart", "shipping", "payment",
-
-        #Backend
+        # Backend
+        "catalogue", "user", "cart", "shipping", "payment",
+        # Backend ALB
         "backend_alb",
-
-        #Frontend
+        # Frontend
         "frontend",
-
-        #frontend
+        # Frontend ALB
         "frontend_alb",
-
-        #Bastion
-        "bastion"
-
-    ]  
+        # Bastion
+        "bastion",
+        # Openvpn
+        "openvpn"
+    ]
 }
