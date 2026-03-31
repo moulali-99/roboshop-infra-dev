@@ -19,13 +19,13 @@ resource "aws_security_group_rule" "mongodb_bastion" {
   security_group_id = local.mongodb_sg_id
 }
 
-resource "aws_security_group_rule" "mongodb_catalouge" {
+resource "aws_security_group_rule" "mongodb_catalogue" {
   type              = "ingress"
   from_port         = 27017
   to_port           = 27017
   protocol          = "tcp"
   # Where traffic is coming from
-  source_security_group_id = local.catalouge_sg_id
+  source_security_group_id = local.catalogue_sg_id
   security_group_id = local.mongodb_sg_id
 }
 
