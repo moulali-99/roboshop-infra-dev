@@ -1,22 +1,18 @@
-
-bastion :
-  - name : bastion_internet
-    port : 22
-    src : internet
-    dest : bastion
-
+bastion:
+- name: bastion_internet
+  port: 22
+  src: internet
+  dest: bastion
 mongodb:
-  - name : mongodb_bastion
-    port : 22
-    src : bastion
-    dest : mongodb
-
-  - name : mongodb_catalouge #mongodb is accepting connection for catalogue
-    port : 27017
-    src : catalouge
-    dest : mongodb
-
-  - name : mongodb_user
-    port : 27017
-    src : user
-    dest : mongodb
+- name: mongodb_bastion
+  port: 22
+  src: bastion
+  dest: mongodb
+- name: mongodb_catalogue # MongoDB accepting connections from Catalogue
+  port: 27017
+  src: catalogue
+  dest: mongodb
+- name: mongodb_user
+  port: 27017
+  src: user
+  dest: mongodb
