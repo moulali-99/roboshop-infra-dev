@@ -6,22 +6,21 @@ resource "aws_instance" "bastion" {
   iam_instance_profile = aws_iam_instance_profile.bastion.name
   user_data = file("bastion.sh")
 
-
   root_block_device {
     volume_size = 50
     volume_type = "gp3"
-    #EBS volume tags
+    # EBS volume tags
     tags = merge(
-    {
-        Name= "${var.project}-${var.environment}-bastion"
-    },
+      {
+          Name = "${var.project}-${var.environment}-bastion"
+      },
     local.common_tags
-  )
+    )
   }
 
   tags = merge(
     {
-        Name= "${var.project}-${var.environment}-bastion"
+        Name = "${var.project}-${var.environment}-bastion"
     },
     local.common_tags
   )
@@ -46,9 +45,9 @@ resource "aws_iam_role" "bastion" {
     ]
   })
 
-  tags =  merge(
+  tags = merge(
     {
-        Name= "RoboShopDevBastion"
+        Name = "RoboShopDevBastion"
     },
     local.common_tags
   )
@@ -58,8 +57,11 @@ resource "aws_iam_role_policy_attachment" "bastion" {
   role       = aws_iam_role.bastion.name
   policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
 }
-    # create instance profile
+
+# Create the instance profile
 resource "aws_iam_instance_profile" "bastion" {
   name = "${var.project}-${var.environment}-bastion"
   role = aws_iam_role.bastion.name
 }
+
+# mongodb-dev.daws88s.online
